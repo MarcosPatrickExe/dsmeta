@@ -1,17 +1,23 @@
 //import react from 'react'
 import './App.css'
 import Notificacao from './components/NotificationButton/index';
-
+import Header from './components/Header/index';
+import SalesCard from './components/SalesCard/index';
 
 function App() {
  
     return (
         <>
-            <h1>Olá mundõõõõõ!!!!! </h1>
-            <Notificacao />
-            <Notificacao />
+            <Header />
+            <main>
+              <section id="sales">
+                <div className="dsmeta-container">
+                    <SalesCard />
+                </div>
+              </section>
+            </main>           
         </>
     )
 }
 
-export default App
+export default App;;

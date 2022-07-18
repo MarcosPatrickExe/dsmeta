@@ -7,9 +7,10 @@
   padding: 0;
 }
 
-body,
-html {
-  background-color: #000;
+body, html {
+  /*background-color: #000; */
+  background: linear-gradient(180deg, #181818 100%, #102347 );
+    
   color: #fff;
 }
 
@@ -18,4 +19,16 @@ a:hover,
 a:visited {
   color: unset;
   text-decoration: none;
+}
+
+
+.dsmeta-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+#sales {
+  padding: 40px 10px;
+
 }
