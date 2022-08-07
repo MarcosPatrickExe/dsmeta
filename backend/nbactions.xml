@@ -12,6 +12,16 @@
             <properties>
                 <exec.args>-classpath %classpath com.devsuperior.dsmeta.DsmetaApplication</exec.args>
                 <exec.executable>java</exec.executable>
+                <Env.TWILIO_SID>AC0c30f93c30f91c8f86a17e09753c84d2</Env.TWILIO_SID>
+                <Env.TWILIO_KEY>28e45c77463e4ecbd762484ac80d961a</Env.TWILIO_KEY>
+                <Env.TWILIO_PHONE_FROM>+19387777542</Env.TWILIO_PHONE_FROM>
+                <Env.TWILIO_PHONE_TO>+5585987153651</Env.TWILIO_PHONE_TO>
+                
+                
+                
+                
+                
+                
             </properties>
         </action>
         <action>

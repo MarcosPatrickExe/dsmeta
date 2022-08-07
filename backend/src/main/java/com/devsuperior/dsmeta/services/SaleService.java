@@ -1,5 +1,4 @@
 package com.devsuperior.dsmeta.services;
-
 import com.devsuperior.dsmeta.entities.Sale;
 import com.devsuperior.dsmeta.repositories.SaleRepository;
 import java.time.Instant;
