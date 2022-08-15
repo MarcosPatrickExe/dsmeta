@@ -26,8 +26,6 @@ public class SaleController {
     @Autowired
     private SmsService smsService;
     
-    
-  //  @GetMapping// permite q o metodo responda va web usando http 
     @GetMapping("/salesList")
     public List<Sale> findSales() {
         
@@ -41,7 +39,7 @@ public class SaleController {
              return this.service.findAllSalesPageable(pageable);
     }
     
-    
+    //  @GetMapping// permite q o metodo responda va web usando http
     
     @GetMapping("/salesPage")
     public Page<Sale> findSalesWithPages(

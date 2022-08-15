@@ -1,20 +1,39 @@
+import axios from "axios";
 import NotificationButton from '../NotificationButton';
 import './style.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 function SalesCard() {
     
     let min = new Date( 
-                new Date().setDate( 
-                        new Date().getDate()-365 
-                ) 
+                    new Date().setDate( 
+                            new Date().getDate()-365 
+                    ) 
               );
 
     const [minDate, setMinDate] = useState( min );
-    const [maxDate, setMaxDate] = useState( new Date() );
+    const [maxDate, setMaxDate] = useState( new Date() );//data atual
+
+    useEffect( ()=>{
+        console.log("teste");
+
+        // ....com/sales/salesList
+
+        // ....com/sales/allSalesPage (retorna lista de pages)
+
+        // ....com/sales/salesPage (recebe minDate e maxDate como parametros e retorna uma page<Sale>)
+
+        // ....com/sales/{id}/notification (recebe uma variable junto ao caminho
+
+        axios.get("https://patrick-dsmeta-backend.herokuapp.com/sales/salesList")
+            .then((response)=>{
+                console.log(response.data);
+            })
+
+    }, []);
 
     return (
         <div className="dsmeta-card">
