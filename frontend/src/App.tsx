@@ -3,6 +3,8 @@ import './App.css'
 import Header from './components/Header/index';
 import SalesCard from './components/SalesCard/index';
 
+
+// CTRL + K S (abre o guia de atalhos do teclado no vscode)
 function App() {
  
     return (
