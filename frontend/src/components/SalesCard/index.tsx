@@ -25,29 +25,35 @@ function SalesCard() {
     const [sales, setSales] = useState<Sale[]>([]);
     
     useEffect( ()=>{
+
+        const dminFormatada = minDate.toISOString().slice(0, 10);
+        const dmaxFormatada = maxDate.toISOString().slice(0, 10);
+
         console.log("teste");
-        // ....com/sales/salesList
-
-        // ....com/sales/allSalesPage (retorna lista de pages)
-
+        // ....com/sales/salesList (retorna todos os objetos no formato 'list')
+        // ....com/sales/allSalesPage (retorna todos os objetos no formato de 'pages')
         // ....com/sales/salesPage (recebe minDate e maxDate como parametros e retorna uma page<Sale>)
-
         // ....com/sales/{id}/notification (recebe uma variable junto ao caminho
         
    //   axios.get("https://patrick-dsmeta-backend.herokuapp.com/sales/salesList")
-        axios.get(`${BASE_URL}/salesList`)
-            .then((response)=>{
-                 console.dir(
-                    JSON.stringify(response.data, null, 4)
-                 );
+        axios.get(`${BASE_URL}/salesPage?minDate=${dminFormatada}&maxDate=${dmaxFormatada}`)
+            .then( (response)=>{
+              //   console.dir( JSON.stringify(response.data, null, 4)  );
 
-                 setSales(
-                    response.data //NAO PRECISA DO .content
-                 );
+                 if( response.data.hasOwnProperty('content') ){
+                    setSales(
+                        response.data.content // NECESSITA DE C'content' UMA VEZ QUE A REQUISICAO RETORNA UM 'PAGE'
+                    );
+
+                 }else{
+                    setSales(
+                        response.data //NAO PRECISA DO .content CASO A REQUISICAO RETORNE UM 'LIST'
+                    );
+                 }
 
             })
 
-    }, [sales]);
+    }, [minDate, maxDate]);
 
     return (
         <div className="dsmeta-card">
@@ -103,9 +109,12 @@ function SalesCard() {
                                         return (
                                             <tr key={sale.id}>
                                                     <td className="show992">{sale.id}</td>
-                                                    <td className="show576">{ 
+                                                    <td className="show576">
+                                                        { 
                                                             new Date(sale.date)
-                                                                .toLocaleString().substring(0, 10) }
+                                                                .toLocaleString()
+                                                                    .substring(0, 10) 
+                                                        }
                                                     </td>
                                                     <td>{sale.sellerName}</td>
                                                     <td className="show992">{sale.visited}</td>
