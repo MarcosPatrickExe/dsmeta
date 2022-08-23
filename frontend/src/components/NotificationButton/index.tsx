@@ -2,6 +2,7 @@ import axios from 'axios';
 import icon from '../../assets/notification-icon.svg';
 import { BASE_URL } from '../../utils/request';
 import './style.css';
+import {toast} from 'react-toastify';
 
 interface Props {
     saleId : number
@@ -17,7 +18,9 @@ function handleClick( id: number ){
 
      axios.get(`${BASE_URL}/${id}/notification`)
         .then( (response)=>{
-                 response.status==200 ? alert("notificao enviada com sucesso!!") : alert("erro de Nº "+response.status);
+                // response.status==200 ? alert("notificao enviada com sucesso!!") : alert("erro de Nº "+response.status);
+                if( response.status=200 )
+                    toast.info("SMS enviado com sucesso!!!");
             }
         ).catch( 
             (error)=>{ 

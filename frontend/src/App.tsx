@@ -2,13 +2,15 @@
 import './App.css'
 import Header from './components/Header/index';
 import SalesCard from './components/SalesCard/index';
-
+import {ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // CTRL + K S (abre o guia de atalhos do teclado no vscode)
 function App() {
  
     return (
         <>
+            <ToastContainer />
             <Header />
             <main>
               <section id="sales">
