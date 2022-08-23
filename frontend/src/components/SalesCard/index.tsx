@@ -12,7 +12,7 @@ import { Sale } from "../../models/sale";
 
 function SalesCard() {
     
-    let min = new Date( 
+    let min = new Date(
                     new Date().setDate( 
                             new Date().getDate()-365 
                     ) 
@@ -29,7 +29,8 @@ function SalesCard() {
         const dminFormatada = minDate.toISOString().slice(0, 10);
         const dmaxFormatada = maxDate.toISOString().slice(0, 10);
 
-        console.log("teste");
+      //  console.log("teste");
+
         // ....com/sales/salesList (retorna todos os objetos no formato 'list')
         // ....com/sales/allSalesPage (retorna todos os objetos no formato de 'pages')
         // ....com/sales/salesPage (recebe minDate e maxDate como parametros e retorna uma page<Sale>)
@@ -42,7 +43,7 @@ function SalesCard() {
 
                  if( response.data.hasOwnProperty('content') ){
                     setSales(
-                        response.data.content // NECESSITA DE C'content' UMA VEZ QUE A REQUISICAO RETORNA UM 'PAGE'
+                        response.data.content // NECESSITA DE 'content' UMA VEZ QUE A REQUISICAO RETORNA UM 'PAGE'
                     );
 
                  }else{
@@ -84,7 +85,7 @@ function SalesCard() {
                 </div>
 
                 <div>
-                  <table className="dsmeta-sales-table">
+                   <table className="dsmeta-sales-table">
 
                         <thead>
                         <tr>
@@ -122,7 +123,7 @@ function SalesCard() {
                                                     <td>{sale.amount.toFixed(2)}</td>
                                                     <td>
                                                         <div className="dsmeta-red-btn-container">
-                                                            <NotificationButton />
+                                                            <NotificationButton saleId={sale.id}/>
                                                         </div>
                                                     </td>
                                             </tr>
@@ -130,19 +131,10 @@ function SalesCard() {
                                     })
                                     
                                 )
-                               
                             }
-
-
-
-                            
-                           
-                            
                         </tbody>
-
-                  </table>
+                   </table>
                 </div>
-
         </div>
     )
 }
